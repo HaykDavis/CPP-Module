@@ -7,7 +7,7 @@
 class Contacts {
 public:
 	static std::string data[5];
-	std::string contacts[5];
+	std::string contact[5];
 };
 
 

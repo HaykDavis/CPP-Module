@@ -17,6 +17,7 @@ public:
 
 	void addContact(void);
 	void findContact(void);
+	void showFullcontact(int indx);
 	void maketable(void);
 	std::string& checkData(std::string &datas);
 };

@@ -13,7 +13,7 @@ void MyPhoneBook::addContact(void) {
 	Contacts person;
 	for (int i = 0; i < 5; i++) {
 		std::cout << Contacts::data[i] << " >> ";
-		getline(std::cin, person.contacts[i]);
+		getline(std::cin, person.contact[i]);
 	}
 	if (size == 8)
 		size = 0;
@@ -28,12 +28,29 @@ void MyPhoneBook::findContact(void) {
 		return ;
 	}
 	maketable();
-	// std::cout << "For more information toucch the index or press 0 to EXIT";
-	// int indx;
-	// std::cin >> indx;
-	// if (indx == 0)
+	std::cout << "For more information toucch the index or press 0 to EXIT\n>> ";
+	int indx;
+	std::cin >> indx;
+	std::cin.clear();
+	if (indx == 0) {
+		std::cin.ignore(1000, '\n');
 		return ;
-	
+	}
+	if (indx < 0 || indx > 8) {
+		std::cout << "Ivalid index" << std::endl;
+		std::cin.ignore(1000, '\n');
+		return ;
+	}
+	showFullcontact(indx);
+	std::cin.ignore(1000, '\n');
+}
+
+void MyPhoneBook::showFullcontact(int indx) {
+	std::cout << "First Name " << contacts[indx - 1].contact[0] << std::endl;
+	std::cout << "Last Name " << contacts[indx - 1].contact[1] << std::endl;
+	std::cout << "Nickname " << contacts[indx - 1].contact[2] << std::endl;
+	std::cout << "Phone Number " << contacts[indx - 1].contact[3] << std::endl;
+	std::cout << "Darkest Secret " << contacts[indx - 1].contact[4] << std::endl;
 }
 
 void MyPhoneBook::maketable(void) {
@@ -41,9 +58,9 @@ void MyPhoneBook::maketable(void) {
 	std::cout << "|    Index|First Name| Last Name|  Nickname|" << std::endl;
 	std::cout << "|******************************************|" << std::endl;
 	for (std::size_t z = 0; z < 8; z++) {
-		std::string first = checkData(contacts[z].contacts[0]);
-		std::string last = checkData(contacts[z].contacts[1]);
-		std::string nick = checkData(contacts[z].contacts[2]);
+		std::string first = checkData(contacts[z].contact[0]);
+		std::string last = checkData(contacts[z].contact[1]);
+		std::string nick = checkData(contacts[z].contact[2]);
 
 		std::cout << '|' << std::setw(9) << z + 1 << '|';
 		std::cout << std::setw(10) << std::right << first << '|';
