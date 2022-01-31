@@ -1,12 +1,12 @@
-NAME	= ex00
+NAME	= ex01
 
-NAME_SRCS = main.cpp newZombie.cpp Zombie.cpp randomChump.cpp
+NAME_SRCS = main.cpp ZombieHorde.cpp Zombie.cpp
 
 HEADER	= Zombie.hpp
 
 RM = rm -f
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -std=c++98
 
 CC = c++ 
 
