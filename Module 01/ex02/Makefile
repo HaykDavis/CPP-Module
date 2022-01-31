@@ -1,8 +1,6 @@
-NAME	= ex01
+NAME	= ex02
 
-NAME_SRCS = main.cpp ZombieHorde.cpp Zombie.cpp
-
-HEADER	= Zombie.hpp
+NAME_SRCS = main.cpp
 
 RM = rm -f
 
@@ -12,9 +10,9 @@ CC = c++
 
 all: $(NAME)
 
-$(NAME) : $(HEADER) $(NAME_SRCS) Makefile
+$(NAME) : $(NAME_SRCS) Makefile
 	@$(CC) $(FLAGS) $(NAME_SRCS) -o $(NAME)
-	@printf "ex01 was build ✅\n"
+	@printf "ex02 was build ✅\n"
 
 clean:
 		# @rm -rf $(OBJ_DIR)
