@@ -9,7 +9,7 @@ class Sed {
 public:
 	Sed();
 	~Sed();
-	void doRaplace(std::string const &file, char *imp, char *outp);
+	void doRaplace(std::string const &file, std::string imp, std::string outp);
 };
 
 #endif

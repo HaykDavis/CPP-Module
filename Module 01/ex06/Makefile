@@ -1,8 +1,8 @@
-NAME	= ex04
+NAME	= ex06
 
-NAME_SRCS = main.cpp sed.cpp
+NAME_SRCS = main.cpp Karen.cpp
 
-HEADER	= sed.hpp
+HEADER	= Karen.hpp
 
 RM = rm -f
 
@@ -14,7 +14,7 @@ all: $(NAME)
 
 $(NAME) : $(HEADER) $(NAME_SRCS) Makefile
 	@$(CC) $(FLAGS) $(NAME_SRCS) -o $(NAME)
-	@printf "ex04 was build ✅\n"
+	@printf "ex06 was build ✅\n"
 
 clean:
 		# @rm -rf $(OBJ_DIR)
