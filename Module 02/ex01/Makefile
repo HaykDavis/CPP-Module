@@ -1,8 +1,8 @@
-NAME	= ex06
+NAME	= Fixed
 
-NAME_SRCS = main.cpp Karen.cpp
+NAME_SRCS = main.cpp Fixed.cpp
 
-HEADER	= Karen.hpp
+HEADER	= Fixed.hpp
 
 RM = rm -f
 
