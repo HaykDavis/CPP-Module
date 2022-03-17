@@ -14,7 +14,7 @@ all: $(NAME)
 
 $(NAME) : $(HEADER) $(NAME_SRCS) Makefile
 	@$(CC) $(FLAGS) $(NAME_SRCS) -o $(NAME)
-	@printf "ex06 was build ✅\n"
+	@printf "Fixed was build ✅\n"
 
 clean:
 		# @rm -rf $(OBJ_DIR)
