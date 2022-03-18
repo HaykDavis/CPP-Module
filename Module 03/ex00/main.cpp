@@ -3,7 +3,7 @@
 int main(void){
     ClapTrap john("John");
 
-    std::cout << "ClapTrap's _name: " << john.getName() << std::endl;
+    std::cout << "ClapTrap's name: " << john.getName() << std::endl;
     std::cout << "ClapTrap has: " << john.getHealth() << " hitpoints" << std::endl;
     std::cout << "ClapTrap has: " << john.getEnergy() << " energy points" << std::endl;
     std::cout << "ClapTrap has: " << john.getAttack() << " attack damage" << std::endl;
