@@ -5,7 +5,7 @@
 # include <iostream>
 
 class ClapTrap {
-	private:
+	protected:
 		unsigned int _health_pionts;
 		unsigned int _energy_points;
 		unsigned int _attack_damage;
@@ -16,6 +16,7 @@ class ClapTrap {
 		ClapTrap(const ClapTrap& other);
 		ClapTrap &operator=(ClapTrap const &other);
 		~ClapTrap();
+
 		void attack(const std::string& target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);

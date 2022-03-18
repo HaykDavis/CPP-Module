@@ -1,24 +1,24 @@
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap() : _health_pionts(10), _energy_points(10), _attack_damage(0), _name("_name") {
-	std::cout << "default Constructor called\n";
+	std::cout << "ClapTrap Constructor called\n";
 }
 
 ClapTrap::~ClapTrap() {
-	std::cout << "Destructor " + _name + " called\n";
+	std::cout << "ClapTrap Destructor " + _name + " called\n";
 }
 
 ClapTrap::ClapTrap(std::string _name) : _health_pionts(10), _energy_points(10), _attack_damage(0), _name(_name) {
-	std::cout << "Constructor " + _name + " called\n";
+	std::cout << "ClapTrap Constructor " + _name + " called\n";
 }
 
 ClapTrap::ClapTrap(const ClapTrap& other){
-	std::cout << "Copy constructor called\n";
+	std::cout << "ClapTrap Copy constructor called\n";
 	*this = other;
 }
 
 ClapTrap &ClapTrap::operator=(ClapTrap const &other){
-	std::cout << "Copy assignment operator called\n";
+	std::cout << "ClapTrap Copy assignment operator called\n";
 	if (this != &other)
 	{
 		this->_health_pionts = other._health_pionts;
