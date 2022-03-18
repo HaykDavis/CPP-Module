@@ -3,8 +3,8 @@
 ScavTrap::ScavTrap() {
 	_name = "no name";
 	_health_pionts = 100;
-	_energy_points = 100;
-	_attack_damage = 0;
+	_energy_points = 50;
+	_attack_damage = 20;
 	std::cout << "ScavTrap Constructor called\n";
 }
 
@@ -15,8 +15,8 @@ ScavTrap::~ScavTrap() {
 ScavTrap::ScavTrap(std::string _name) {
 	this->_name = _name;
 	_health_pionts = 100;
-	_energy_points = 100;
-	_attack_damage = 0;
+	_energy_points = 50;
+	_attack_damage = 20;
 	std::cout << "ScavTrap Constructor " + _name + " called\n";
 }
 
