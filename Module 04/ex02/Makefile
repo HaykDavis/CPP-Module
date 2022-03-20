@@ -1,8 +1,8 @@
-_name	= FragTrap
+_name	= AnimalA
 
-_name_SRCS = ClapTrap.cpp main.cpp ScavTrap.cpp FragTrap.cpp
+_name_SRCS = AnimalA.cpp main.cpp Cat.cpp Dog.cpp Brain.cpp
 
-HEADER	= ClapTrap.hpp ScavTrap.hpp FragTrap.hpp
+HEADER	= AnimalA.hpp Cat.hpp Dog.hpp Brain.hpp 
 
 RM = rm -f
 
@@ -14,7 +14,7 @@ all: $(_name)
 
 $(_name) : $(HEADER) $(_name_SRCS) Makefile
 	@$(CC) $(FLAGS) $(_name_SRCS) -o $(_name)
-	@printf "FragTrap was build ✅\n"
+	@printf "AnimalA was build ✅\n"
 
 clean:
 		# @rm -rf $(OBJ_DIR)
