@@ -4,34 +4,20 @@ Form::Form(): _name(""), _isSigned(false), _gradeSign(0), _gradeExec(150){
     std::cout << "Form default Constructor called\n";
 }
 
-Form::Form(std::string const &_name, unsigned int const &_gradeSign, unsigned int const &_gradeExec) : _name(_name){
+Form::Form(std::string name, unsigned int gradeSign, unsigned int gradeExec) : _name(name), _isSigned(false), _gradeSign(gradeSign), _gradeExec(gradeExec) {
     std::cout << "Form Constructor called\n";
-    if (_grade < 1)
+    if (_gradeSign < 1 || _gradeSign < 1)
         throw GradeTooLowException();
-    else if (_grade > 150)
+    else if (_gradeSign > 150 || _gradeSign > 150)
         throw GradeTooHighException();
-    else
-        this->_grade = _grade;
 }
 
-Form::Form(const Form& other){
-    std::cout << "Form Copy Constructor called\n";
-    if (other._grade < 1)
-        throw GradeTooLowException();
-    else if (other._grade > 150)
-        throw GradeTooHighException();
-    else
-        *this = other;  
-}
+Form::Form(const Form& other) : _name(other.getName()), _isSigned(other.getIsSigned()), _gradeSign(other.getGradeSign()), _gradeExec(other.getGradeExec()) {}
 
 Form &Form::operator=(Form const &other){
     std::cout << "Form Copy assignment operator called\n";
-    if (other._grade < 1)
-        throw GradeTooLowException();
-    else if (other._grade > 150)
-        throw GradeTooHighException();
-	else if (this != &other)
-		this->_grade = other._grade;
+    if (this != &other)
+        this->_isSigned = other._isSigned;
 	return (*this);
 }
 
@@ -64,6 +50,17 @@ const char *Form::GradeTooLowException::what() const throw(){
 }
 
 std::ostream &operator<<(std::ostream &os, Form const &other){
-    os << other.getName() << "bureaucrat rank is " << other.getGrade() << "\n";
+    os << "Name: " << other.getName() << "\n" 
+	<< "Form is " << (other.getIsSigned() ? "signed" : "not signed") << "\n" 
+	<< "Grade to  sign: " << other.getGradeSign()<< "\n"
+	<< "Grade to execute: " << other.getGradeExec() << "\n";
     return (os);
+}
+
+void Form::beSigned(const Bureaucrat &man){
+    if (_isSigned)
+		return ;
+	else if (_gradeSign < man.getGrade())
+		throw (GradeTooLowException());
+	_isSigned = true;
 }

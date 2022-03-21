@@ -1,42 +1,77 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int		main(void)
 {
-	Bureaucrat *b = new Bureaucrat("bob", 3);
-	Bureaucrat *a = new Bureaucrat("jim", 149);
+	Bureaucrat *bob = new Bureaucrat("Bob", 3);
+	Bureaucrat *jim = new Bureaucrat("Jim", 149);
+	Form *B = new Form("28B", 70, 70);
 
-	std::cout << *b;
-	std::cout << *a << std::endl;
+	std::cout << *bob << *jim << std::endl;
+	std::cout << *B << std::endl;
 
-	b->incrementGrade();
-	b->incrementGrade();
+	std::cout << "~INVALID GRADE CONSTRUCTOR TEST~\n" << std::endl;
 	try
 	{
-		b->incrementGrade();
+		Bureaucrat mike("Mike", 0);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << "\n";
+	}
+
+	try
+	{
+		Bureaucrat mike("Mike", 200);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << "\n";
+	}
+
+	try
+	{
+		Form C("28C", 0, 151);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << "\n";
+	}
+
+	try
+	{
+		Form C("28C", 151, 0);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << "\n\n";
+	}
+
+	std::cout << "~~~~~~~~~SIGNED TESTS~~~~~~~~~~~\n" << std::endl;
+
+	try
+	{
+		B->beSigned(*jim);
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
-	
-	std::cout << *b << std::endl;
-
-	a->decrementGrade();
+	std::cout << *B << std::endl;
 
 	try
 	{
-		a->decrementGrade();
+		B->beSigned(*bob);
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
-	
-	std::cout << *a << std::endl;
+	std::cout << *B << std::endl;
 
-
-	delete a;
-	delete b;
+	delete jim;
+	delete bob;
+	delete B;
 	return 0;
 
 }

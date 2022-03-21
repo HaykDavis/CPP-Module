@@ -5,15 +5,17 @@
 # include <iostream>
 # include "Bureaucrat.hpp"
 
+class Bureaucrat;
+
 class Form {
 	private:
 		const std::string _name;
-        const bool _isSigned;
+        bool _isSigned;
         const unsigned int _gradeSign;
         const unsigned int _gradeExec;
 	public:
 		Form();
-		Form(std::string const &_name, unsigned int const &_gradeSign, unsigned int const &_gradeExec);
+		Form(std::string _name, unsigned int _gradeSign, unsigned int _gradeExec);
 		Form(const Form& other);
 		Form &operator=(Form const &other);
 		~Form();
@@ -23,7 +25,7 @@ class Form {
         unsigned int const &getGradeExec(void) const;
         bool const &getIsSigned(void) const;
 
-        beSigned(const Bureaucrat &man);
+        void beSigned(const Bureaucrat &man);
 
         class GradeTooHighException : public std::exception {
             virtual const char *what() const throw();

@@ -5,6 +5,8 @@
 # include <iostream>
 # include "Form.hpp"
 
+class Form;
+
 class Bureaucrat {
 	protected:
 		std::string _name;
