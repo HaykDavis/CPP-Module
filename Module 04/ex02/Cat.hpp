@@ -20,6 +20,7 @@ class Cat : public AnimalA{
 		const Brain *getBrain(void) const;
 		void setBrIdea(std::string idea, int i);
 		const std::string &getBrIdea(int i) const;
+		
 };
 
 #endif

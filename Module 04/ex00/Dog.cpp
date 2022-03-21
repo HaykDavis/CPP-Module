@@ -2,6 +2,7 @@
 
 Dog::Dog() {
 	std::cout << "Dog default Constructor called\n";
+	type = "Dog";
 }
 
 Dog::~Dog() {

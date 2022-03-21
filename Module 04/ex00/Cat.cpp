@@ -2,6 +2,7 @@
 
 Cat::Cat() {
 	std::cout << "Cat default Constructor called\n";
+	type = "Cat";
 }
 
 Cat::~Cat() {

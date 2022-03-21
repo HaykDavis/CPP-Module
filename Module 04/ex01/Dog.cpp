@@ -24,6 +24,7 @@ Dog &Dog::operator=(Dog const &other){
 	{
 		this->type = other.type;
 		Brain *brains = new Brain();
+		delete brain;
 		*brains = *(other.brain);
 		this->brain = brains;
 	}

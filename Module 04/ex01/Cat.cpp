@@ -9,7 +9,8 @@ Cat::Cat() {
 
 Cat::~Cat() {
 	std::cout << "Cat Destructor called\n";
-	delete brain;
+	if (this->brain)
+		delete brain;
 }
 
 Cat::Cat(const Cat& other){
@@ -19,11 +20,11 @@ Cat::Cat(const Cat& other){
 
 Cat &Cat::operator=(Cat const &other){
 	std::cout << "Cat Copy assignment operator called\n";
-	if (this != &other)
-	{
+	if (this != &other){
 		this->type = other.type;
 		Brain *brains = new Brain();
 		*brains = *(other.brain);
+		delete brain;
 		this->brain = brains;
 	}
 	return (*this);

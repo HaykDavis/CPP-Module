@@ -3,51 +3,33 @@
 #include "Dog.hpp"
 
 int main(void){
-    AnimalA *i[10];
+    // Animal animal;
+    // animal.makeSound();
 
-    std::cout << "<<<<<<Creating an array of Animal>>>>>>>>\n" << std::endl;
-    for(int j = 0; j < 5; j++){
-        i[j] = new Cat();
-    }
-    for (int j = 5; j < 10; j++){
-        i[j] = new Dog();
-    }
-    std::cout << "\n<<<<<<Deleting an array of Animal>>>>>>>>\n" << std::endl;
-    for(int j = 0; j < 10; j++){
-        delete i[j];
-    }
-    std::cout << "---------------------" << std::endl;
+    AnimalA *i = new Cat();
+    AnimalA *j = new Dog();
+    // *i = *j;
+    delete i;
+    delete j;
 
-    std::cout << "\n<<<<<<Cat deep copy test>>>>>>>>\n" << std::endl;
     Cat cat;
-    for (int i = 0; i < 10; i++)
-        cat.setBrIdea("Cat test", i);
-    for (int i = 0; i < 10; i++){
-        std::cout << cat.getBrIdea(i) << "  Index is " << i << std::endl;
-        cat.makeSound();
-    }
-    Cat tmp = cat;
-
-    if (&(tmp.getBrIdea(0)) != &(cat.getBrIdea(0)))
+    cat.makeSound();
+    cat.setBrIdea("test", 0);
+    Cat tmp1 = cat;
+    std::cout << "\n<<<Cat deep copy test>>>" << std::endl;
+    if (&(tmp1.getBrIdea(0)) != &(cat.getBrIdea(0)))
         std::cout << "Deep copy succeeded!" << std::endl;
     else
         std::cout << "Deep copy failed!" << std::endl;
-    std::cout << "---------------------" << std::endl;
-    
-    std::cout << "\n<<<<<<Dog deep copy test>>>>>>>>\n" << std::endl;
-    
+    std::cout << "-------------------" << std::endl;
     Dog dog;
-    for (int i = 0; i < 10; i++)
-        dog.setBrIdea("Dog test", i);
-    for (int i = 0; i < 10; i++){
-        std::cout << dog.getBrIdea(i) << "  Index is " << i << std::endl;
-        dog.makeSound();
-    }
+    dog.setBrIdea("test", 0);
+    dog.makeSound();
     Dog tmp2 = dog;
-
+    std::cout << "\n<<<Dog deep copy test>>>" << std::endl;
     if (&(tmp2.getBrIdea(0)) != &(dog.getBrIdea(0)))
         std::cout << "Deep copy succeeded!" << std::endl;
     else
         std::cout << "Deep copy failed!" << std::endl;
-    std::cout << "---------------------" << std::endl;
+    std::cout << "-------------------" << std::endl;
 }
