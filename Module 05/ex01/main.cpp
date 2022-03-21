@@ -73,5 +73,4 @@ int		main(void)
 	delete bob;
 	delete B;
 	return 0;
-
 }
