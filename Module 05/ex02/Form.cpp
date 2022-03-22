@@ -4,7 +4,7 @@ Form::Form(): _name(""), _isSigned(false), _gradeSign(0), _gradeExec(150){
     // std::cout << "Form default Constructor called\n";
 }
 
-Form::Form(std::string const &name, unsigned int const &gradeSign, unsigned int const &gradeExec) : _name(name), _isSigned(false), _gradeSign(gradeSign), _gradeExec(gradeExec) {
+Form::Form(std::string const &name, unsigned int const &gradeSign, unsigned int const &gradeExec, const std::string &target) : _name(name), _isSigned(false), _gradeSign(gradeSign), _gradeExec(gradeExec), _target(target) {
     // std::cout << "Form Constructor called\n";
     if (_gradeSign < 1 || _gradeSign < 1)
         throw GradeTooLowException();
@@ -37,6 +37,10 @@ unsigned int const &Form::getGradeExec(void) const{
     return (this->_gradeExec);
 }
 
+const std::string &Form::getTarget(void) const{
+    return (this->_target);
+}
+
 bool const &Form::getIsSigned(void) const {
     return (this->_isSigned);
 }
@@ -47,6 +51,10 @@ const char *Form::GradeTooHighException::what() const throw(){
 
 const char *Form::GradeTooLowException::what() const throw(){
     return ("Grade is too LOW!");
+}
+
+const char *Form::FormDoesNotSigned::what() const throw(){
+    return ("Form is Not Signed!");
 }
 
 std::ostream &operator<<(std::ostream &os, Form const &other){
@@ -60,9 +68,19 @@ std::ostream &operator<<(std::ostream &os, Form const &other){
 void Form::beSigned(const Bureaucrat &man){
     if (_isSigned)
 		return ;
-	else if (_gradeSign < man.getGrade())
-		throw (GradeTooLowException());
     else if (_gradeExec < man.getGrade())
 		throw (GradeTooLowException());
 	_isSigned = true;
+}
+
+void Form::isGradeOk(int grade_to_check, int grade) const{
+    if (grade_to_check > grade)
+        throw GradeTooLowException();
+    else if (grade_to_check < grade)
+        throw GradeTooHighException();
+}
+
+void Form::isSigned(void) const {
+    if (!_isSigned)
+        throw FormDoesNotSigned();
 }

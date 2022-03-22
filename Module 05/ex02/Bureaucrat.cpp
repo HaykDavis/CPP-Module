@@ -39,7 +39,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat& other){
 }
 
 Bureaucrat &Bureaucrat::operator=(Bureaucrat const &other){
-    // std::cout << "Bureaucrat Copy assignment operator called\n";
+    std::cout << "Bureaucrat Copy assignment operator called\n";
     if (other._grade < 1)
         throw GradeTooLowException();
     else if (other._grade > 150)
@@ -89,10 +89,19 @@ std::ostream &operator<<(std::ostream &os, Bureaucrat const &other){
 }
 
 void Bureaucrat::signForm(Form &forma) const{
-try{
+    try{
 		forma.beSigned(*this);
 		std::cout << _name << " signs " << forma.getName() << std::endl;
 	} catch (std::exception &e){
 		std::cerr << _name << " cannot sign " << forma.getName() << " because "<< e.what() << std :: endl;
+	}
+}
+
+void Bureaucrat::executeForm(const Form &form){
+	try{
+		form.execute(*this);
+		std::cout << _name << " executes " << form.getName() << std::endl;
+	} catch(const std::exception &e){
+		std::cerr  << e.what() << '\n';
 	}
 }
