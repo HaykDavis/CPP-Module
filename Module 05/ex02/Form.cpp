@@ -76,8 +76,6 @@ void Form::beSigned(const Bureaucrat &man){
 void Form::isGradeOk(int grade_to_check, int grade) const{
     if (grade_to_check > grade)
         throw GradeTooLowException();
-    else if (grade_to_check < grade)
-        throw GradeTooHighException();
 }
 
 void Form::isSigned(void) const {

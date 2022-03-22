@@ -1,4 +1,4 @@
-_name	= Form
+_name	= Intern
 
 _name_SRCS = Bureaucrat.cpp main.cpp Form.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp Intern.cpp
 
@@ -14,7 +14,7 @@ all: $(_name)
 
 $(_name) : $(HEADER) $(_name_SRCS) Makefile
 	@$(CC) $(FLAGS) $(_name_SRCS) -o $(_name)
-	@printf "Bureaucrat was build ✅\n"
+	@printf "Intern was build ✅\n"
 
 clean:
 		# @rm -rf $(OBJ_DIR)

@@ -4,145 +4,54 @@
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 
-int main(){
-{
-	Bureaucrat bureaucrat("Bob", 1);
-	ShrubberyCreationForm form_1("target");
-	RobotomyRequestForm form_2("target");
-	PresidentialPardonForm form_3("target");
-
-	try
-	{
-		bureaucrat.executeForm(form_1);
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	try
-	{
-		bureaucrat.executeForm(form_2);
-	}
-		catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	try
-	{
-		bureaucrat.executeForm(form_3);
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	std::cout << std::endl;
-	try
-	{
-		bureaucrat.signForm(form_1);
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	try
-	{
-		bureaucrat.signForm(form_2);
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	try
-	{
-		bureaucrat.signForm(form_3);
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	std::cout << std::endl;
-	try
-	{
-		bureaucrat.executeForm(form_1);
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	try
-	{
-		bureaucrat.executeForm(form_2);
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	try
-	{
-		bureaucrat.executeForm(form_3);
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-
-	std::cout << std::endl << std::endl;
-
+void testPrint(Bureaucrat &b, Form &f){
+	std::cout << "\n" << std::endl;
+	std::cout << b << std::endl;
+	std::cout << f << std::endl;
+	b.signForm(f);
+	b.executeForm(f);
+	std::cout << f << std::endl;
+	std::cout << "\n" << std::endl;
 }
-{
-	Bureaucrat bureaucrat("Bob", 55);
-	ShrubberyCreationForm form_1("target_1");
-	RobotomyRequestForm form_2("target_1");
-	PresidentialPardonForm form_3("target_1");
 
-	std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" << std::endl;
-	try{
-		bureaucrat.executeForm(form_1);
-	} catch (std::exception &e){
-		std::cout << e.what() << std::endl;
-	}
-	try{
-		bureaucrat.executeForm(form_2);
-	} catch (std::exception &e){
-		std::cout << e.what() << std::endl;
-	}
-	try{
-		bureaucrat.executeForm(form_3);
-	} catch (std::exception &e){
-		std::cout << e.what() << std::endl;
-	}
+int main(void){
 
-	std::cout << std::endl;
-	try{
-		bureaucrat.signForm(form_1);
-	} catch (std::exception &e){
-		std::cout << e.what() << std::endl;
-	}
-	try{
-		bureaucrat.signForm(form_2);
-	} catch (std::exception &e){
-		std::cout << e.what() << std::endl;
-	}
-	try{
-		bureaucrat.signForm(form_3);
-	} catch (std::exception &e){
-		std::cout << e.what() << std::endl;
-	}
-	std::cout << std::endl;
-	try{
-		bureaucrat.executeForm(form_1);
-	} catch (std::exception &e){
-		std::cout << e.what() << std::endl;
-	}
-	try{
-		bureaucrat.executeForm(form_2);
-	} catch (std::exception &e){
-		std::cout << e.what() << std::endl;
-	}
-	try{
-		bureaucrat.executeForm(form_3);
-	} catch (std::exception &e){
-		std::cout << e.what() << std::endl;
-	}
-	}
+	std::cout << "<<<<<<<<ShrubberyCreationForm test>>>>>>>>>>>>>" << std::endl;
+	Bureaucrat bob("top", 1);
+	ShrubberyCreationForm s_form("smth1");
+	testPrint(bob, s_form);
+	
+	Bureaucrat mid("mid", 100);
+	ShrubberyCreationForm mid_form("smth2");
+	testPrint(mid, mid_form);
+
+	Bureaucrat last("last", 150);
+	ShrubberyCreationForm last_form("smth3");
+	testPrint(last, last_form);
+
+	// std::cout << "<<<<<<<<RobotomyRequestForm test>>>>>>>>>>>>>" << std::endl;
+	// Bureaucrat r1("top", 1);
+	// RobotomyRequestForm r_form("smth1");
+	// testPrint(r1, r_form);
+	
+	// Bureaucrat r_mid("mid", 100);
+	// RobotomyRequestForm r_midl("smth2");
+	// testPrint(r_mid, r_midl);
+
+	// Bureaucrat r_last("last", 150);
+	// RobotomyRequestForm last_r("smth3");
+	// testPrint(r_last, last_r);
+
+	// std::cout << "<<<<<<<<PresidentialPardonForm test>>>>>>>>>>>>>" << std::endl;
+	// Bureaucrat p1("top", 1);
+	// PresidentialPardonForm p_form("smth1");
+	// testPrint(p1, p_form);
+	
+	// Bureaucrat p_mid("mid", 100);
+	// PresidentialPardonForm p_midl("smth2");
+	// testPrint(p_mid, p_midl);
+
+	// Bureaucrat p_last("last", 150);
+	// PresidentialPardonForm last_p("smth3");
+	// testPrint(p_last, last_p);
 }
