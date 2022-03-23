@@ -23,8 +23,8 @@ Cat &Cat::operator=(Cat const &other){
 	if (this != &other){
 		this->type = other.type;
 		Brain *brains = new Brain();
-		*brains = *(other.brain);
 		delete brain;
+		*brains = *(other.brain);
 		this->brain = brains;
 	}
 	return (*this);

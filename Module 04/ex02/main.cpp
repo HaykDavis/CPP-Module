@@ -15,7 +15,8 @@ int main(void){
     Cat cat;
     cat.makeSound();
     cat.setBrIdea("test", 0);
-    Cat tmp1 = cat;
+    Cat tmp1;
+    tmp1 = cat;
     std::cout << "\n<<<Cat deep copy test>>>" << std::endl;
     if (&(tmp1.getBrIdea(0)) != &(cat.getBrIdea(0)))
         std::cout << "Deep copy succeeded!" << std::endl;
@@ -25,7 +26,8 @@ int main(void){
     Dog dog;
     dog.setBrIdea("test", 0);
     dog.makeSound();
-    Dog tmp2 = dog;
+    Dog tmp2;
+    tmp2 = dog;
     std::cout << "\n<<<Dog deep copy test>>>" << std::endl;
     if (&(tmp2.getBrIdea(0)) != &(dog.getBrIdea(0)))
         std::cout << "Deep copy succeeded!" << std::endl;
