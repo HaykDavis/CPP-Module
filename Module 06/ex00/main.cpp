@@ -61,6 +61,8 @@ int main(int argc, char **argv){
 	}
 	value = argv[1];
 	tmpVal = std::strtod(value.c_str(), nullptr);
+	if (tmpVal == 0 && !isdigit(value[0]) && value[1] == '\0')
+		tmpVal = static_cast<double> (value[0]);
 	displayChar(tmpVal);
 	displayInt(tmpVal);
 	displayFloat(value, tmpVal);

@@ -1,8 +1,8 @@
-_name	= convert
+_name	= Form++
 
 _name_SRCS = main.cpp
 
-# HEADER	= 
+HEADER	= Base.hpp A.hpp B.hpp C.hpp 
 
 RM = rm -f
 
@@ -12,9 +12,9 @@ CC = c++
 
 all: $(_name)
 
-$(_name) : $(_name_SRCS) Makefile
+$(_name) : $(HEADER) $(_name_SRCS) Makefile
 	@$(CC) $(FLAGS) $(_name_SRCS) -o $(_name)
-	@printf "convert was build ✅\n"
+	@printf "Base was build ✅\n"
 
 clean:
 		# @rm -rf $(OBJ_DIR)

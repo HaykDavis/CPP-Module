@@ -1,8 +1,8 @@
-_name	= Bureaucrat
+_name	= serializator
 
-_name_SRCS = Bureaucrat.cpp main.cpp
+_name_SRCS = main.cpp
 
-HEADER	= Bureaucrat.hpp
+# HEADER	= 
 
 RM = rm -f
 
@@ -12,9 +12,9 @@ CC = c++
 
 all: $(_name)
 
-$(_name) : $(HEADER) $(_name_SRCS) Makefile
+$(_name) : $(_name_SRCS) Makefile
 	@$(CC) $(FLAGS) $(_name_SRCS) -o $(_name)
-	@printf "Bureaucrat was build ✅\n"
+	@printf "serializator was build ✅\n"
 
 clean:
 		# @rm -rf $(OBJ_DIR)
