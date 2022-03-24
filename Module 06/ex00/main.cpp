@@ -36,15 +36,15 @@ void displayInt(double val){
 
 void displayFloat(std::string &value, double val){
 	float floatV = static_cast<float>(val);
-	
-	if (!((std::isnan(floatV) || std::isinf(floatV)) && value.find('.') == std::string::npos))
+	std::cout << value.find('.') << "\n";
+	if ((!(std::isnan(floatV) || std::isinf(floatV)) && (value.find('.') == std::string::npos)))
 		std::cout << "Float: " << floatV << ".0f\n";
 	else
 		std::cout << "Float: " << floatV << "f\n";
 }
 
 void displayDouble(std::string &value, double val){
-	if (!((std::isnan(val) || std::isinf(val)) && value.find('.') == std::string::npos))
+	if ((!(std::isnan(val) || std::isinf(val)) && value.find('.') == std::string::npos))
 		std::cout << "Double: " << val << ".0\n";
 	else
 		std::cout << "Double: " << val << "\n";
