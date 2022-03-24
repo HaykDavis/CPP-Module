@@ -1,8 +1,8 @@
-_name	= easyfind
+_name	= Span
 
-_name_SRCS = main.cpp
+_name_SRCS = main.cpp Span.cpp 
 
-HEADER	= easyfind.hpp 
+HEADER	= Span.hpp 
 
 RM = rm -f
 
@@ -14,7 +14,7 @@ all: $(_name)
 
 $(_name) : $(HEADER) $(_name_SRCS) Makefile
 	@$(CC) $(FLAGS) $(_name_SRCS) -o $(_name)
-	@printf "easyfind was build ✅\n"
+	@printf "Span was build ✅\n"
 
 clean:
 		# @rm -rf $(OBJ_DIR)

@@ -1,56 +1,19 @@
-#include "easyfind.hpp"
+#include "Span.hpp"
 
-int main(){
-	std::vector<int> vec;
-	std::list<int> lst;
-	std::set<int> st;
-
-	for (int i = 0; i < 5; i++){
-		vec.push_back(i);
-	}
-	for (int i = 0; i < 5; i++){
-		lst.push_back(i);
-	}
-	for (int i = 0; i < 5; i++){
-		st.insert(i);
-	}
-	std::cout << "-----------TEST VECTOR-----------" << std::endl;
-	try{
-		std::vector<int>::iterator it = easyfind(vec, 1);
-		std::cout << *it << std::endl;
-	} catch(const std::exception &e){
-		std::cerr << e.what() << std::endl;
-	}
-	try{
-		std::vector<int>::iterator it = easyfind(vec, 100);
-		std::cout << *it << std::endl;
-	} catch(const std::exception &e){
-		std::cerr << e.what() << std::endl;
-	}
-	std::cout << "-----------TEST LIST-----------" << std::endl;
-	try{
-		std::list<int>::iterator it = easyfind(lst, 2);
-		std::cout << *it << std::endl;
-	} catch(const std::exception &e){
-		std::cerr << e.what() << std::endl;
-	}
-	try{
-		std::list<int>::iterator it = easyfind(lst, 200);
-		std::cout << *it << std::endl;
-	} catch(const std::exception &e){
-		std::cerr << e.what() << std::endl;
-	}
-	std::cout << "-----------TEST SET-----------" << std::endl;
-	try{
-		std::set<int>::iterator it = easyfind(st, 3);
-		std::cout << *it << std::endl;
-	} catch(const std::exception &e){
-		std::cerr << e.what() << std::endl;
-	}
-	try{
-		std::set<int>::iterator it = easyfind(st, 300);
-		std::cout << *it << std::endl;
-	} catch(const std::exception &e){
-		std::cerr << e.what() << std::endl;
-	}
+int main() {
+	Span sp = Span(10000);
+	sp.addNumber(6);
+	sp.addNumber(3);
+	sp.addNumber(17);
+	sp.addNumber(9);
+	sp.addNumber(11);
+	std::cout << sp.shortestSpan() << std::endl;
+	std::cout << sp.longestSpan() << std::endl;
+	std::list<int> i;
+	for (unsigned int l = 0; l < 1000; l++)
+		i.push_back(l + 10);
+	sp.addNumber(i.begin(), i.end());
+	std::cout << sp.shortestSpan() << std::endl;
+	std::cout << sp.longestSpan() << std::endl;
+	return 0; 
 }
