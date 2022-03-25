@@ -25,7 +25,7 @@ unsigned int Span::shortestSpan(void) const{
 }
 
 unsigned int Span::longestSpan(void) const{
-	std::vector<int>tmp = arr;
+	std::vector<int> tmp = arr;
 	if (this->arr.size() < 2)
 		throw FewArgException();
 	std::sort(tmp.begin(), tmp.end());
