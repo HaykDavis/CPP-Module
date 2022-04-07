@@ -16,7 +16,7 @@ Span &Span::operator=(Span const &other){
 	return (*this);
 }
 
-unsigned int Span::shortestSpan(void) const{
+unsigned int Span::longestSpan(void) const{
 	if (this->arr.size() < 2)
 		throw FewArgException();
 	int min = *min_element(this->arr.begin(), this->arr.end());
@@ -24,16 +24,19 @@ unsigned int Span::shortestSpan(void) const{
 	return (max - min);
 }
 
-unsigned int Span::longestSpan(void) const{
-	std::vector<int>tmp = arr;
+unsigned int Span::shortestSpan(void) const{
+	std::vector<int> tmp = arr;
 	if (this->arr.size() < 2)
 		throw FewArgException();
 	std::sort(tmp.begin(), tmp.end());
-	std::vector<int>::iterator res = std::min_element(tmp.begin(), tmp.end());
-	int min = *res;
-	res++;
-	int next = *res;
-	return (next - min);
+	int min = std::abs(tmp[1] - tmp[0]);
+	for (unsigned long i = 0; i < tmp.size(); i++){
+		for (unsigned long j = 0; j < tmp.size(); j++){
+			if (i != j && min > abs(tmp[i] - tmp[j]))
+				min = abs(tmp[i] - tmp[j]);
+		}
+	}
+	return (min);
 }
 
 void Span::addNumber(int const num){

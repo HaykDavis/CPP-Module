@@ -32,18 +32,17 @@ class Span {
 			this->arr.push_back(*iterTwo);
 		}
 
-
 		class FewArgException : public std::exception {
 			virtual const char *what() const throw(){
 				return ("Few args!");
 		}
-	};
+		};
 
-	class NoSpaceLeftException : public std::exception {
-		virtual const char *what() const throw(){
-			return ("No space left!");
-		}
-	};
+		class NoSpaceLeftException : public std::exception {
+			virtual const char *what() const throw(){
+				return ("No space left!");
+			}
+		};
 };
 
 

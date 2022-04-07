@@ -1,56 +1,73 @@
-#include "easyfind.hpp"
+#include "MutantStack.hpp"
+#include <list>
+#include <string>
 
-int main(){
-	std::vector<int> vec;
-	std::list<int> lst;
-	std::set<int> st;
+int main(void) {
+    {
+		MutantStack<int> mstack;
+		
+		mstack.push(5);
+		mstack.push(17);
 
-	for (int i = 0; i < 5; i++){
-		vec.push_back(i);
+		std::cout << "top: " << mstack.top() << std::endl;
+		mstack.pop();
+
+		std::cout << "size: " <<mstack.size() << std::endl;
+
+		mstack.push(3);
+		mstack.push(5);
+		mstack.push(737);
+		mstack.push(0);
+		
+		MutantStack<int>::it it = mstack.begin();
+		MutantStack<int>::it ite = mstack.end();
+		
+		++it;
+		--it;
+		std :: cout << "----ELEMENTS_OF_STACK_WITH_BEGIN()_AND_END()----" << std :: endl;
+		while (it != ite)
+		{
+			std::cout << *it << std::endl;
+			++it;
+		}
+
+		MutantStack<int>::reverse_it rit = mstack.rbegin();
+		MutantStack<int>::reverse_it rite = mstack.rend();
+		++rit;
+		--rit;
+		std :: cout << "----ELEMENTS_OF_STACK_WITH_RBEGIN()_AND_REND()----" << std :: endl;
+		while (rit != rite)
+		{
+			std::cout << *rit << std::endl;
+			++rit;
+		}
+		std::stack<int> s(mstack);
 	}
-	for (int i = 0; i < 5; i++){
-		lst.push_back(i);
+	{
+		std::list<int> lst;
+
+		lst.push_back(5);
+		lst.push_back(3);
+		lst.push_back(5);
+		lst.push_back(737);
+		lst.push_back(0);
+
+		std::list<int>::iterator it = lst.begin();
+		std::list<int>::iterator ite = lst.end();
+		std::list<int>::reverse_iterator rit = lst.rbegin();
+		std::list<int>::reverse_iterator rite = lst.rend();
+		std::cout << "----ELEMENTS_OF_LIST_WITH_BEGIN()_AND_END()----" << std::endl;
+		while (it != ite)
+		{
+			std::cout << *it << std::endl;
+			++it;
+		}
+		std::cout << "----ELEMENTS_OF_LIST_WITH_RBEGIN()_AND_REND()----" << std::endl;
+		while (rit != rite)
+		{
+			std::cout << *rit << std::endl;
+			++rit;
+		}
 	}
-	for (int i = 0; i < 5; i++){
-		st.insert(i);
-	}
-	std::cout << "-----------TEST VECTOR-----------" << std::endl;
-	try{
-		std::vector<int>::iterator it = easyfind(vec, 1);
-		std::cout << *it << std::endl;
-	} catch(const std::exception &e){
-		std::cerr << e.what() << std::endl;
-	}
-	try{
-		std::vector<int>::iterator it = easyfind(vec, 100);
-		std::cout << *it << std::endl;
-	} catch(const std::exception &e){
-		std::cerr << e.what() << std::endl;
-	}
-	std::cout << "-----------TEST LIST-----------" << std::endl;
-	try{
-		std::list<int>::iterator it = easyfind(lst, 2);
-		std::cout << *it << std::endl;
-	} catch(const std::exception &e){
-		std::cerr << e.what() << std::endl;
-	}
-	try{
-		std::list<int>::iterator it = easyfind(lst, 200);
-		std::cout << *it << std::endl;
-	} catch(const std::exception &e){
-		std::cerr << e.what() << std::endl;
-	}
-	std::cout << "-----------TEST SET-----------" << std::endl;
-	try{
-		std::set<int>::iterator it = easyfind(st, 3);
-		std::cout << *it << std::endl;
-	} catch(const std::exception &e){
-		std::cerr << e.what() << std::endl;
-	}
-	try{
-		std::set<int>::iterator it = easyfind(st, 300);
-		std::cout << *it << std::endl;
-	} catch(const std::exception &e){
-		std::cerr << e.what() << std::endl;
-	}
+	return 0;
 }

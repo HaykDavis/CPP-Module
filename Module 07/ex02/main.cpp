@@ -6,7 +6,7 @@ int	main(void)
 {
 	Array<int> a = Array<int>(5);
 
-	std::cout << "~~~~~~~~~ACCESS~~~~~~~~~" << std::endl;
+	std::cout << "--------------ACCESS--------------" << std::endl;
 	try{
 		a[4] = 3;
 		a[0] = 0;
@@ -20,7 +20,7 @@ int	main(void)
 	}catch(const std::exception& e){
 		std::cerr << e.what() << '\n';
 	}
-	std::cout << "~~~~~~~~~ITER~~~~~~~~~" << std::endl;
+	std::cout << "--------------ITER--------------" << std::endl;
 	try{
 		for (unsigned int i = 0; i < a.size(); i++)
 			a[i] = i;
@@ -29,7 +29,7 @@ int	main(void)
 	}catch(const std::exception& e){
 		std::cerr << e.what() << '\n';
 	}
-	std::cout << "~~~~~~~~~COPY~~~~~~~~" << std::endl;
+	std::cout << "--------------COPY--------------"<< std::endl;
 	try{
 		Array<int> b = a;
 		b[0] = 123456;
