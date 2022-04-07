@@ -9,10 +9,6 @@ bool isInt(double val){
 	return (std::isnan(val) || std::isinf(val) || val < std::numeric_limits<int>::min() ||  val > std::numeric_limits<int>::max());
 }
 
-bool isFloat(double val){
-	return (std::isnan(val) || std::isinf(val) || val < std::numeric_limits<float>::min() ||  val > std::numeric_limits<float>::max());
-}
-
 bool isDouble(double val){
 	return (std::isnan(val) || std::isinf(val) || val < std::numeric_limits<double>::min() ||  val > std::numeric_limits<double>::max());
 }
@@ -28,7 +24,7 @@ void displayChar(double val) {
 
 void displayInt(double val){
 	
-	if (isInt(val))
+	if (isInt(!val))
 		std::cout << "int: imposible \n";
 	else
 		std::cout << "Int: " << static_cast<int>(val) << "\n";
@@ -36,7 +32,6 @@ void displayInt(double val){
 
 void displayFloat(std::string &value, double val){
 	float floatV = static_cast<float>(val);
-	std::cout << value.find('.') << "\n";
 	if ((!(std::isnan(floatV) || std::isinf(floatV)) && (value.find('.') == std::string::npos)))
 		std::cout << "Float: " << floatV << ".0f\n";
 	else
